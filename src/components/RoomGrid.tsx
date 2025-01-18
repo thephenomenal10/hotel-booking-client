@@ -15,7 +15,6 @@ const RoomGrid: React.FC = () => {
   );
 
   useEffect(() => {
-    console.log("useEffect triggered");
     if (error && !errorHandled) {
       toast.error(`Error: ${error}`, {
         autoClose: 500,
