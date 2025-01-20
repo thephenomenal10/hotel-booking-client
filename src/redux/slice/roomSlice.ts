@@ -53,7 +53,9 @@ const roomSlice = createSlice({
       .addCase(bookRooms.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
-        state.rooms = action.payload;
+        state.rooms = action.payload.sort(
+          (a: IRoom, b: IRoom) => a.roomNumber - b.roomNumber
+        );
       })
       .addCase(bookRooms.rejected, (state, action) => {
         state.loading = false;
@@ -66,7 +68,9 @@ const roomSlice = createSlice({
       .addCase(randomOccupancy.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
-        state.rooms = action.payload;
+        state.rooms = action.payload.sort(
+          (a: IRoom, b: IRoom) => a.roomNumber - b.roomNumber
+        );
       })
       .addCase(randomOccupancy.rejected, (state, action) => {
         state.loading = false;
@@ -79,7 +83,9 @@ const roomSlice = createSlice({
       .addCase(resetRooms.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
-        state.rooms = action.payload;
+        state.rooms = action.payload.sort(
+          (a: IRoom, b: IRoom) => a.roomNumber - b.roomNumber
+        );
       })
       .addCase(resetRooms.rejected, (state, action) => {
         state.loading = false;
