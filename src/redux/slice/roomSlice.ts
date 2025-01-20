@@ -39,7 +39,9 @@ const roomSlice = createSlice({
       .addCase(fetchRooms.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
-        state.rooms = action.payload;
+        state.rooms = action.payload.sort(
+          (a: IRoom, b: IRoom) => a.roomNumber - b.roomNumber
+        );
       })
       .addCase(fetchRooms.rejected, (state, action) => {
         state.loading = false;
